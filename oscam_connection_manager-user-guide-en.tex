@@ -644,11 +644,58 @@ Important security measures:
 \appendix
 \chapter{Configuration Reference}
 
+\section{Configuration File Format}
+The \texttt{oscam\_connection\_manager.conf} file uses the INI format to store host configurations. Each host is represented by a section named \texttt{Host\_[name]}, where \texttt{[name]} is the display name of the host.
+
+\begin{procedurebox}
+Example configuration file structure:
+\begin{verbatim}
+[Host_MyServer1]
+host = 192.168.1.100
+username = root
+password = mypassword
+directory = /etc/tuxbox/config/
+
+[Host_MyServer2]
+host = example.com
+username = root
+password = anotherpassword
+directory = /etc/tuxbox/config/oscam/
+\end{verbatim}
+
+Each host section contains the following fields:
+\begin{itemize}
+    \item \texttt{host}: The hostname or IP address of the server
+    \item \texttt{username}: FTP username (defaults to "root")
+    \item \texttt{password}: FTP password
+    \item \texttt{directory}: Path to OSCam configuration files
+\end{itemize}
+\end{procedurebox}
+
+\begin{notebox}
+The configuration file is automatically:
+\begin{itemize}
+    \item Created when saving host configurations
+    \item Loaded when the application starts
+    \item Updated when changes are made to host settings
+\end{itemize}
+\end{notebox}
+
+\begin{warningbox}
+Security considerations:
+\begin{itemize}
+    \item The configuration file stores passwords in plain text
+    \item Ensure the file has appropriate permissions
+    \item Keep the file in a secure location
+    \item Consider using environment variables or a secure password manager for sensitive credentials
+\end{itemize}
+\end{warningbox}
+
 \section{Directory Structure}
 \dirtree{%
 .1 /.
 .2 oscam\_connection\_manager.py.
-.2 oscam\_connection.conf.
+.2 oscam\_connection\_manager.conf.
 .2 icon.ico.
 .2 icon.png.
 .2 oscam.server\_[hostname].
