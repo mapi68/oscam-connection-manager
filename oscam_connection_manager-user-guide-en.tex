@@ -184,6 +184,31 @@ For most Windows users, the pre-built 64-bit release is recommended as it doesn'
 
 \chapter{Interface Overview}
 
+\section{Console Output Features}
+The console output area provides detailed operational feedback:
+
+\begin{itemize}
+    \item \textbf{Timestamped Entries}: Each log entry includes HH:MM:SS timestamp
+    \item \textbf{Color-Coded Messages}:
+    \begin{itemize}
+        \item Standard operations in white
+        \item Errors highlighted distinctly
+        \item Success messages clearly indicated
+    \end{itemize}
+    \item \textbf{Operation Types Logged}:
+    \begin{itemize}
+        \item Connection attempts and results
+        \item File operations (view, edit, transfer)
+        \item Host management actions
+        \item Backup operations with file counts
+        \item OSCam restart attempts and results
+    \end{itemize}
+\end{itemize}
+
+\begin{tipbox}
+The console provides immediate feedback for all operations, helping users track actions and diagnose issues quickly.
+\end{tipbox}
+
 \section{Main Window Layout}
 
 \subsection{Host Management Section}
@@ -235,6 +260,37 @@ A text area displaying:
 \end{itemize}
 
 \chapter{Basic Operations}
+
+\section{Directory Configuration}
+\subsection{Preconfigured Directory Paths}
+The application includes commonly used OSCam configuration paths:
+
+\begin{procedurebox}
+Available preset directories:
+\begin{itemize}
+    \item \texttt{/etc/tuxbox/config/}
+    \item \texttt{/etc/tuxbox/config/oscam/}
+    \item \texttt{/etc/tuxbox/config/oscam-emu/}
+    \item \texttt{/hdd/oscam/}
+    \item \texttt{/hdd/oscam-emu/}
+    \item \texttt{/home/oscam/}
+    \item \texttt{/home/oscam-emu/}
+    \item \texttt{/media/hdd/oscam/}
+    \item \texttt{/media/hdd/oscam-emu/}
+    \item \texttt{/media/usb/oscam/}
+    \item \texttt{/media/usb/oscam-emu/}
+    \item \texttt{/usr/local/etc/}
+    \item \texttt{/usr/local/oscam/config/}
+    \item \texttt{/usr/share/oscam/config/}
+    \item \texttt{/var/tuxbox/config/}
+    \item \texttt{/var/etc/}
+    \item \texttt{/var/oscam/config/}
+\end{itemize}
+\end{procedurebox}
+
+\begin{notebox}
+The directory field is editable, allowing users to enter custom paths when needed.
+\end{notebox}
 
 \section{Managing Hosts}
 
@@ -398,6 +454,42 @@ The application always reads the httpport value from the remote oscam.conf file 
 \end{notebox}
 
 \chapter{Troubleshooting}
+
+\section{Error Message Reference}
+The application provides detailed error messages for common issues:
+
+\begin{itemize}
+    \item \textbf{Host Management Errors}:
+    \begin{itemize}
+        \item "Host already exists"
+        \item "No host selected"
+        \item "Both fields are required!"
+    \end{itemize}
+
+    \item \textbf{File Operation Errors}:
+    \begin{itemize}
+        \item "Remote oscam.server file not found"
+        \item "Local [filename] file not found"
+        \item "Failed to backup [filename]"
+    \end{itemize}
+
+    \item \textbf{Connection Errors}:
+    \begin{itemize}
+        \item "FTP connection failed: [specific error]"
+        \item "Please fill in all connection details"
+    \end{itemize}
+\end{itemize}
+
+\begin{procedurebox}
+When encountering errors:
+\begin{enumerate}
+    \item Read the full error message in the console
+    \item Check the timestamp of the error
+    \item Verify the current host selection
+    \item Review connection settings
+    \item Ensure required files exist
+\end{enumerate}
+\end{procedurebox}
 
 \section{Web Interface Troubleshooting}
 
