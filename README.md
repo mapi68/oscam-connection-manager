@@ -5,7 +5,7 @@
 [![GitHub release](https://img.shields.io/github/release/mapi68/oscam-connection-manager.svg)](https://github.com/mapi68/oscam-connection-manager/releases)
 [![GitHub release date](https://img.shields.io/github/release-date/mapi68/oscam-connection-manager.svg)](https://github.com/mapi68/oscam-connection-manager/releases)
 [![GitHub last commit](https://img.shields.io/github/last-commit/mapi68/oscam-connection-manager.svg)](https://github.com/mapi68/oscam-connection-manager/commits/master)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/mapi68/oscam-connection-manager)](https://github.com/mapi68/oscam-connection-manager/commits/master)
+[![GitHub All Releases](https://img.shields.io/github/downloads/mapi68/oscam-connection-manager/total.svg)](https://github.com/mapi68/oscam-connection-manager/releases)
 
 A PyQt6-based GUI application that simplifies managing OSCam server configurations across multiple hosts. Features include remote configuration editing, manual backup capabilities, and FTP-based transfers with a modern dark-themed interface.
 
