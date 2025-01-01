@@ -1,0 +1,58 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+    paths-ignore:
+      - 'README.md'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+
+      - name: Install pyinstaller
+        run: pip install pyinstaller
+
+      - name: Install pipreqs
+        run: pip install pipreqs
+
+      - name: Generate requirements.txt
+        run: |
+          pipreqs --force .
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Set up UPX
+        run: |
+          choco install upx -y
+
+      - name: Build EXE
+        run: |
+          pyinstaller oscam_connection_manager.spec
+
+      - name: Create artifact
+        run: |
+          cd dist
+          move oscam_connection_manager_*.exe ..
+
+      - name: Copy PDF files
+        run: |
+          mkdir artifact_contents
+          move oscam_connection_manager_*.exe artifact_contents/
+          copy *.pdf artifact_contents/ 2>nul || echo No PDF files found
+
+      - name: Save ZIP artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: oscam_connection_manager-win64
+          path: artifact_contents/
